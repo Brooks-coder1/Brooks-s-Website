@@ -22,6 +22,15 @@
 - **Database:** SQLite  
 - **Version Control:** Git, GitHub  
 
+
+## Preview
+
+Here’s how Brooks's Web looks:
+
+![Brooks's Web Screenshot](/static/layout.png)
+
+
+
 ## Installation
 
 1. Clone the repository:
