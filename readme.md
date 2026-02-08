@@ -27,3 +27,9 @@
 1. Clone the repository:
    ```bash
    git clone https://github.com/Brooks-coder1/Brooks-s-Website.git
+
+
+2. Install the requirements
+    ```install
+    pip install -r requirements.txt
+
