@@ -26,29 +26,58 @@
 
 
 <div class="intro">
-    <div class="note">notes</div>
-    <div class="project">project</div>
-    <div class="guide">personal guidance</div>
+    <div class="card"><i class="fa-solid fa-book-open"></i>Notes</div>
+    <div class="card"><i class="fa-solid fa-code"></i>Project</div>
+    <div class="card"><i class="fa-solid fa-user"></i>Personal Guidance</div>
 </div>
+
 <style>
-    .intro{
-        color: white;
+
+    .intro {
         display: flex;
+        justify-content: center;
         align-items: center;
+        gap: 30px;
+        padding: 40px 20px;
+        min-height: 25vh;
+        width: 90%;
+        margin: 40px auto;
+        border-radius: 15px;
+        background: rgb(255, 255, 255);
         text-align: center;
-        gap: 20px;
-        padding: 0 60px 20px 60px;
-        min-height: 50vh;
-        border: #ffffff 1px;
-        
+        color: #000000;
+    }
+
+    .card {
+        padding: 20px 40px;
+        border-radius: 10px;
+        background: rgb(255, 255, 255);
+        transition: transform 0.3s, background 0.3s;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        background: rgb(255, 255, 255);
+    }
+
+    @media (max-width: 768px) {
+        .intro {
+            flex-direction: column;
+            gap: 20px;
+            padding: 30px 10px;
+        }
+
+        .card {
+            width: 80%;
+        }
     }
 </style>
 
 
-
 <style>
-
-
     /* ================= HERO ================= */
 
     .hero {
@@ -171,14 +200,14 @@
             height: 50px
         }
 
-        .hero{
+        .hero {
 
             display: flex;
             align-items: center;
             flex-direction: column;
         }
 
-        .hero-img{       
+        .hero-img {
             width: 200px;
             height: 250px;
             margin-top: 20px;
