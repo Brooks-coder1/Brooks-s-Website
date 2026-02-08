@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %}Home{% endblock %} | Brooks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="/static/logo.png" type="image/x-icon">
+
+
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+
+            <!-- Logo -->
+            <div class="logo">
+                <span class="logo-icon"></span>&lt;/&gt; Brooks<span class="logo-icon"></span>
+            </div>
+
+            <!-- Menu -->
+            <nav class="nav-menu" id="navMenu">
+                <a href="/" class="nav-link active">Home</a>
+                <a href="/about" class="nav-link">About</a>
+                <a href="/notes" class="nav-link">Notes</a>
+                <a href="/tutorial" class="nav-link">Tutorial</a>
+                <a href="/blog" class="nav-link">Blog</a>
+                <a href="/projects" class="nav-link">Projects</a>
+                <a href="/contact" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Hamburger -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+    </header>
+
+    <style>
+        ::selection {
+            background-color: #ffffff;
+            color: #000000;
+
+        }
+
+        ::-moz-selection {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* ===== Base ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        html {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: #0b0f19;
+            height: 200vh;
+        }
+
+        /* ===== Navbar ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+
+            backdrop-filter: blur(14px);
+            background: rgba(15, 20, 35, 0.55);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+        }
+
+        /* ===== Logo ===== */
+        .logo {
+            color: none;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            -webkit-text-stroke: 1px #ffffff;
+        }
+
+        .logo-icon {
+            color: none;
+        }
+
+        /* ===== Menu ===== */
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: #cfd6ff;
+            text-decoration: none;
+            font-size: 15px;
+            position: relative;
+            transition: .3s;
+        }
+
+        /* hover glow */
+        .nav-link:hover {
+            color: white;
+        }
+
+        /* underline animation */
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(90deg, #ffffff, #ffffff);
+            transition: .35s;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* ===== Hamburger ===== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            transition: .3s;
+            border-radius: 3px;
+        }
+
+        /* Animate */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* ===== Mobile ===== */
+        @media(max-width:900px) {
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 260px;
+                height: 100vh;
+                background: rgba(12, 15, 25, 0.95);
+                backdrop-filter: blur(18px);
+
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 90px 30px;
+                gap: 25px;
+
+                transition: .4s ease;
+                border-left: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-link {
+                font-size: 18px;
+            }
+        }
+    </style>
+
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("navMenu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        /* close when clicking link (mobile UX) */
+        document.querySelectorAll(".nav-link").forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+            });
+        });
+
+    </script>
+
+    <!-- ================= PAGE CONTENT ================= -->
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+</body>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+            <h2>&lt;/&gt; BrooksCodeLab</h2>
+            <p class="tagline">&lt; Learn / Build / Share / Grow &gt;</p>
+            <p class="desc">
+                A developer Working space where coding meets with creativity.
+                Here, I make those type of things which is wonderable and make
+                workable and amazing projects by using of my modern skills.
+            </p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="footer-links">
+            <h4>Explore</h4>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/notes">Notes</a>
+            <a href="/tutorial">Tutorials</a>
+            <a href="/blog">Blog</a>
+            <a href="/projects">Projects</a>
+            <a href="/contact">Contact</a>
+        </div>
+
+        <!-- Social -->
+        <div class="footer-social">
+            <h4>Connect</h4>
+            <div class="social-icons">
+
+                <a href="/">
+                    <i class="bi bi-globe2"></i>
+                    Website
+                </a>
+
+                <a href="https://github.com/">
+                    <i class="bi bi-github"></i>
+                    GitHub
+                </a>
+
+                <a href="https://youtube.com/">
+                    <i class="bi bi-youtube"></i>
+                    YouTube
+                </a>
+
+                <a href="https://instagram.com/">
+                    <i class="bi bi-instagram"></i>
+                    Instagram
+                </a>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+        <p>© 2026 Brooks. All rights reserved.</p>
+    </div>
+
+</footer>
+<style>
+    /* ===== Footer Base ===== */
+    .footer {
+        margin-top: 120px;
+        background: linear-gradient(180deg, #0b0f19, #05070f);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        color: #c9d1ff;
+        padding-top: 60px;
+    }
+
+    /* Layout */
+    .footer-container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 25px 40px;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 50px;
+    }
+
+    /* Brand */
+    .footer-brand h2 {
+        font-size: 26px;
+        color: white;
+        margin-bottom: 12px;
+    }
+
+    .tagline {
+        color: #ffffff;
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+
+    .desc {
+        line-height: 1.6;
+        color: #9aa4d4;
+        font-size: 14px;
+    }
+
+    /* Links */
+    .footer-links h4,
+    .footer-social h4 {
+        color: white;
+        margin-bottom: 18px;
+        font-size: 16px;
+    }
+
+    .footer-links a {
+        display: block;
+        text-decoration: none;
+        color: #9aa4d4;
+        margin: 8px 0;
+        transition: .25s;
+    }
+
+    .footer-links a:hover {
+        color: white;
+        transform: translateX(6px);
+    }
+
+    .social-icons a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: #9aa4d4;
+        margin: 12px 0;
+        transition: .25s;
+        font-size: 14px;
+    }
+
+    /* icon style */
+    .social-icons i {
+        font-size: 20px;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        transition: .25s;
+    }
+
+    /* hover glow */
+    .social-icons a:hover {
+        color: white;
+        transform: translateX(6px);
+    }
+
+    .social-icons a:hover i {
+        background: white;
+        color: rgb(0, 0, 0);
+        box-shadow: 0 0 18px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Bottom */
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        text-align: center;
+        padding: 18px;
+        font-size: 13px;
+        color: #7c86b6;
+    }
+
+    /* Responsive */
+    @media(max-width:900px) {
+        .footer-container {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .footer-links a,
+        .social-icons a {
+            justify-content: center;
+        }
+    }
+</style>
+
+</html>

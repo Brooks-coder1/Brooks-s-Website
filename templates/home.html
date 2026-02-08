@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Hey !,<br>
+            Unlock the Fut<span class="highlight">ure of Web Devel</span>opment
+        </h1>
+
+        <p>
+            Study smarter, not harder — with interactive notes, AI tools,
+            and personalized guidance built for Web Developers With Brooks.
+        </p>
+
+        <div class="hero-buttons">
+            <button class="primary-btn">Start Learning</button>
+            <button class="secondary-btn">Explore Courses</button>
+        </div>
+    </div>
+    <div class="hero-img"></div>
+</section>
+
+
+<div class="intro">
+    <div class="note">notes</div>
+    <div class="project">project</div>
+    <div class="guide">personal guidance</div>
+</div>
+<style>
+    .intro{
+        color: white;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        padding: 0 60px 20px 60px;
+        min-height: 50vh;
+        border: #ffffff 1px;
+        
+    }
+</style>
+
+
+
+<style>
+
+
+    /* ================= HERO ================= */
+
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 140px 60px 80px;
+    }
+
+    .hero-content {
+        max-width: 550px;
+    }
+
+    .hero-content h1 {
+        font-size: 3.2rem;
+        line-height: 1.25;
+        color: white;
+    }
+
+    .hero-img {
+        background-image: url(/static/logo.png);
+        background-repeat: no-repeat;
+        width: 400px;
+        height: 450px;
+        border: #ffffff 2px solid;
+        border-radius: 50% 50% 0 0;
+        margin-left: 100px;
+        background-size: cover;
+    }
+
+    .highlight {
+        background-color: #ffffff;
+        color: black;
+    }
+
+    .hero-content p {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #cfcfcf;
+    }
+
+    .hero-buttons {
+        margin-top: 30px;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .primary-btn {
+        padding: 10px 18px;
+        background: #ffffff;
+        color: black;
+        border-radius: 30px;
+        border: none;
+        font-weight: 600;
+
+    }
+
+    .secondary-btn {
+        padding: 10px 18px;
+        background: transparent;
+        border: 2px solid #ffffff;
+        border-radius: 30px;
+        color: #ffffff;
+
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        cursor: pointer;
+        transition: all .25s ease;
+    }
+
+    .primary-btn:hover {
+        background: #ffffff;
+        color: #000;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 22px rgba(255, 255, 255, 0.35);
+    }
+
+    .primary-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 3px 10px rgba(255, 255, 255, 0.25);
+    }
+
+    .secondary-btn:hover {
+        background: #ffffff;
+        color: #000;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 22px rgba(255, 255, 255, .25);
+    }
+
+    .secondary-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 3px 10px rgba(255, 255, 255, .2);
+    }
+
+
+    /* ================= MOBILE ================= */
+
+    @media(max-width:500px) {
+
+        .hero-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            width: 220px;
+        }
+
+        .txt-card {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px
+        }
+
+        .hero{
+
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .hero-img{       
+            width: 200px;
+            height: 250px;
+            margin-top: 20px;
+            margin-right: 100px;
+        }
+    }
+
+
+    /* ================= TABLET ================= */
+
+    @media(max-width:900px) {
+
+        .navbar {
+            position: relative;
+            padding: 20px 25px;
+            flex-wrap: wrap;
+        }
+
+        .menu-toggle {
+            display: block
+        }
+
+        .nav-links {
+            width: 100%;
+            display: none;
+            flex-direction: column;
+            text-align: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .nav-links.active {
+            display: flex
+        }
+
+        .hero {
+            padding: 120px 25px 60px;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 100%
+        }
+
+        .hero-content h1 {
+            font-size: clamp(28px, 6vw, 42px);
+        }
+
+        .hero-buttons {
+            justify-content: center
+        }
+
+        .choose-container {
+            grid-template-columns: 1fr;
+        }
+
+        .choose-img {
+            height: 300px
+        }
+    }
+</style>
+{% endblock %}

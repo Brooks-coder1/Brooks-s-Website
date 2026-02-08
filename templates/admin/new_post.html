@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Post | Brooks</title>
+    <link rel="shortcut icon" href="/static/logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #0B0F19;
+            --bg-glass: rgba(15, 20, 35, .55);
+            --text-main: #FFFFFF;
+            --text-secondary: #C9D1FF;
+            --text-muted: #6B7399;
+            --border-soft: rgba(255, 255, 255, .08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px 14px;
+            background:
+                radial-gradient(circle at 20% 20%, #111a33 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, #1a0f3d 0%, transparent 40%),
+                var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .card {
+            width: 100%;
+            max-width: 760px;
+            padding: 30px 28px;
+            border-radius: 18px;
+            background: var(--bg-glass);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-soft);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .6), 0 0 30px rgba(0, 229, 255, .08);
+        }
+
+        h1 {
+            margin-bottom: 22px;
+            font-weight: 600;
+            font-size: 1.8rem
+        }
+
+        label {
+            display: block;
+            margin: 14px 0 6px;
+            color: var(--text-secondary);
+            font-size: 14px
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--border-soft);
+            background: #0f1424;
+            color: white;
+            font-size: 14px;
+            transition: .25s;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 220px
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: white;
+            box-shadow: 0 0 12px rgba(255, 255, 255, .35);
+            background: #0c1220;
+        }
+
+        .actions {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .back {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            background: white;
+            color: black;
+            transition: .25s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 18px rgba(255, 255, 255, .6);
+        }
+
+        /* Tablet */
+        @media(max-width:768px) {
+            h1 {
+                font-size: 1.6rem
+            }
+
+            textarea {
+                min-height: 200px
+            }
+        }
+
+        /* Mobile */
+        @media(max-width:520px) {
+            body {
+                align-items: flex-start
+            }
+
+            .card {
+                padding: 22px 18px
+            }
+
+            h1 {
+                font-size: 1.45rem
+            }
+
+            .actions {
+                flex-direction: column;
+                align-items: stretch
+            }
+
+            button {
+                width: 100%
+            }
+
+            .back {
+                order: 2;
+                text-align: center;
+                margin-top: 8px
+            }
+        }
+
+        /* Small phones */
+        @media(max-width:360px) {
+
+            input,
+            textarea {
+                font-size: 13px;
+                padding: 10px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <form method="post" class="card">
+        <h1>Create New Post</h1>
+
+        <label>Title</label>
+        <input name="title" placeholder="Enter post title" required>
+
+        <label>Content</label>
+        <textarea name="content" placeholder="Write your article here..." required></textarea>
+
+        <div class="actions">
+            <a href="/admin" class="back">← Back to dashboard</a>
+            <button type="submit">Publish</button>
+        </div>
+    </form>
+
+</body>
+
+</html>

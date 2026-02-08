@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Brooks</title>
+    <link rel="shortcut icon" href="/static/logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #00E5FF;
+            --secondary: #7B61FF;
+            --accent: #2962FF;
+
+            --bg-main: #0B0F19;
+            --bg-card: #151A2E;
+            --bg-glass: rgba(15, 20, 35, 0.55);
+
+            --text-main: #FFFFFF;
+            --text-secondary: #C9D1FF;
+            --text-muted: #6B7399;
+
+            --border-soft: rgba(255, 255, 255, 0.08);
+            --gradient-main: linear-gradient(90deg, #ff9900, #ff6161);
+            --gradient-premium: linear-gradient(135deg, #ff4d00, #ff2929, #d7610c);
+        }
+
+        /* ===== Base ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                radial-gradient(circle at 20% 20%, #111a33 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, #1a0f3d 0%, transparent 40%),
+                var(--bg-main);
+            color: var(--text-main);
+        }
+
+        /* ===== Card ===== */
+        .login-card {
+            width: 90%;
+            max-width: 380px;
+            padding: 40px 30px;
+            border-radius: 18px;
+
+            background: var(--bg-glass);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-soft);
+
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, .6),
+                0 0 30px rgba(0, 229, 255, .08);
+        }
+
+        .login-card h2 {
+            text-align: center;
+            margin-bottom: 28px;
+            font-weight: 600;
+            letter-spacing: .5px;
+        }
+
+        /* ===== Inputs ===== */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--border-soft);
+            background: #0f1424;
+            color: white;
+            font-size: 14px;
+            transition: .25s;
+        }
+
+        input::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Focus Glow */
+        input:focus {
+            outline: none;
+            border-color: white;
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+            background: #0c1220;
+        }
+
+        /* ===== Button ===== */
+        button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 13px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            color: rgb(0, 0, 0);
+            background: white;
+            transition: .25s;
+        }
+
+        /* Hover Glow */
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 18px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Active click */
+        button:active {
+            transform: scale(.97);
+        }
+
+        /* ===== Small screens ===== */
+        @media (max-width:420px) {
+            .login-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <form method="post" class="login-card">
+
+        <h2>Admin Login</h2>
+
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Enter username" required>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter password" required>
+        </div>
+
+        <button type="submit">Login</button>
+
+    </form>
+
+</body>
+
+</html>

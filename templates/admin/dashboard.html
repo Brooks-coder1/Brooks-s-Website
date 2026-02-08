@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Brooks</title>
+    <link rel="shortcut icon" href="/static/logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #00E5FF;
+            --secondary: #7B61FF;
+            --accent: #2962FF;
+            --bg-main: #0B0F19;
+            --bg-card: #151A2E;
+            --bg-glass: rgba(15, 20, 35, 0.55);
+            --text-main: #FFFFFF;
+            --text-secondary: #C9D1FF;
+            --text-muted: #6B7399;
+            --border-soft: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            padding: 30px 14px;
+            background:
+                radial-gradient(circle at 20% 20%, #111a33 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, #1a0f3d 0%, transparent 40%),
+                var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-soft);
+            border-radius: 18px;
+            padding: 26px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .6), 0 0 30px rgba(0, 229, 255, .08);
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-weight: 600;
+            letter-spacing: .5px;
+            font-size: 1.8rem;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .actions a {
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: .25s;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: white;
+            color: black;
+        }
+
+        .btn-danger {
+            border: 1px solid var(--border-soft);
+            color: var(--text-secondary);
+        }
+
+        .btn-danger:hover {
+            background: rgb(255, 0, 0);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .actions a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 18px rgba(255, 0, 0, 0.25);
+        }
+
+        /* Desktop table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            padding: 14px 12px;
+            text-align: left;
+        }
+
+        th {
+            color: var(--text-secondary);
+            font-size: 14px;
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        tr {
+            border-bottom: 1px solid var(--border-soft);
+            transition: .2s;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .date {
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+        }
+
+        .delete-btn {
+            padding: 6px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 13px;
+            border: 1px solid rgba(255, 80, 80, 0.4);
+            color: #ff6b6b;
+            transition: .25s;
+        }
+
+        .delete-btn:hover {
+            background-color: red;
+            color: white;
+            box-shadow: 0 0 12px rgba(255, 0, 0, 0.35);
+        }
+
+        /* Tablet */
+        @media(max-width:900px) {
+            h1 {
+                font-size: 1.6rem
+            }
+        }
+
+        /* Mobile layout */
+        @media(max-width:650px) {
+
+            table,
+            thead,
+            tbody,
+            th,
+            td,
+            tr {
+                display: block;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tr {
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid var(--border-soft);
+                border-radius: 14px;
+                padding: 14px;
+                margin-bottom: 14px;
+            }
+
+            td {
+                border: none;
+                padding: 8px 4px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            td::before {
+                font-weight: 600;
+                color: var(--text-secondary);
+            }
+
+            td:nth-child(1)::before {
+                content: "Title"
+            }
+
+            td:nth-child(2)::before {
+                content: "Date"
+            }
+
+            td:nth-child(3)::before {
+                content: "Action"
+            }
+
+            .delete-btn {
+                padding: 8px 14px
+            }
+        }
+
+        /* Small phones */
+        @media(max-width:400px) {
+            .card {
+                padding: 18px
+            }
+
+            h1 {
+                font-size: 1.4rem
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card">
+            <div class="topbar">
+                <h1>Dashboard</h1>
+                <div class="actions">
+                    <a href="/admin/new" class="btn-primary">Create Post</a>
+                    <a href="/admin/logout" class="btn-danger">Logout</a>
+                </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in posts %}
+                    <tr>
+                        <td>{{ p[1] }}</td>
+                        <td class="date">{{ p[3] }}</td>
+                        <td><a href="/admin/delete/{{ p[0] }}" class="delete-btn">Delete</a></td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="3" class="empty">No posts available</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>

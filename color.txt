@@ -1,0 +1,42 @@
+Purpose	            Color	        Hex
+Primary Neon	    Cyan Glow	    #00E5FF
+Secondary Accent	Violet Tech     #7B61FF
+Deep Accent	        Electric Blue	#2962FF
+Hover Accent	    Aqua Bright     #18FFFF
+
+
+
+| Layer              | Hex                   |
+| ------------------ | --------------------- |
+| Main Background    | `#0B0F19`             |
+| Section Background | `#0F1424`             |
+| Card Background    | `#151A2E`             |
+| Glass Background   | `rgba(15,20,35,0.55)` |
+| Deep Surface       | `#080C14`             |
+
+
+
+
+:root{
+
+--primary:#00E5FF;
+--secondary:#7B61FF;
+--accent:#2962FF;
+
+--bg-main:#0B0F19;
+--bg-section:#0F1424;
+--bg-card:#151A2E;
+--bg-glass:rgba(15,20,35,0.55);
+
+--text-main:#FFFFFF;
+--text-secondary:#C9D1FF;
+--text-para:#9AA4D4;
+--text-muted:#6B7399;
+
+--border-soft:rgba(255,255,255,0.05);
+--border-glass:rgba(255,255,255,0.08);
+
+--gradient-main:linear-gradient(90deg,#00E5FF,#7B61FF);
+--gradient-premium:linear-gradient(135deg,#00E5FF,#2962FF,#7B61FF);
+
+}
