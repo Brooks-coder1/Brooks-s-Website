@@ -23,80 +23,218 @@
     </div>
     <div class="hero-img"></div>
 </section>
-
-
-<div class="intro">
-    <div class="card"><i class="fa-solid fa-book-open" style="font-size: 40px;"></i>
-        <div class="card-content"> 
-            <h1 style="font-size: 30px; text-align: center; margin-right: 20px;">Notes</h1>
-            <p style="font-size: large; text-align: left;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-
-        </div>
-    </div>
-    <div class="card"><i class="fa-solid fa-code" style="font-size: 40px;"></i>
-        <div class="card-content">
-            <h1 style="font-size: 30px; text-align: center; margin-right: 20px;">Notes</h1>
-            <p style="font-size: large; text-align: left;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            
-
-        </div>
-    </div>
-    <div class="card"><i class="fa-solid fa-user" style="font-size: 40px;"></i>
-        <div class="card-content">
-            <h1 style="font-size: 30px; text-align: center; margin-right: 20px;">Notes</h1>
-            <p style="font-size: large; text-align: left;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            
-        </div>
-    </div>
-</div>
-
-<style>
-    .intro {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        padding: 40px 20px;
-        min-height: 25vh;
-        width: 90%;
-        margin: 40px auto;
-        border-radius: 15px;
-        background: rgb(255, 255, 255);
-        text-align: center;
-        color: #000000; 
-    }
-
-    .card {
-        padding: 20px 40px;
-        border-radius: 10px;
-        background: rgb(255, 255, 255);
-        transition: transform 0.3s, background 0.3s;
-        cursor: pointer;
-        font-weight: bold;
-        font-size: 18px;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .card:hover {
-        transform: translateY(-5px);
-        background: rgb(255, 255, 255);
-    }
-
-    @media (max-width: 768px) {
+<style> 
         .intro {
-            flex-direction: column;
-            gap: 20px;
-            padding: 30px 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 50px 40px;
+            width: 100%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
         }
 
         .card {
-            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #ffffff15 0%, #ffffff15 100%);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
         }
-    }
-</style>
 
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+            z-index: 1;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #ffffff;
+            background: linear-gradient(135deg, #ffffff25 0%, #ffffff25 100%);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
+        }
+
+        .card-icon {
+            font-size: 50px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .card:hover .card-icon {
+            color: #ffffff;
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .card-content h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .card-content p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .card-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #ffffff, #ffffff);
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .card:hover .card-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-link:hover {
+            transform: translateX(4px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .intro {
+                grid-template-columns: 1fr;
+                padding: 30px 20px;
+                gap: 20px;
+            }
+
+            .card {
+                padding: 30px 20px;
+            }
+
+            .card-icon {
+                font-size: 40px;
+            }
+
+            .card-content h2 {
+                font-size: 20px;
+            }
+
+            .card-content p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .intro {
+                padding: 20px 15px;
+            }
+
+            .card {
+                padding: 25px 15px;
+            }
+
+            .card-icon {
+                font-size: 35px;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* Accessibility */
+        .card:focus-visible {
+            outline: 3px solid #ffffff;
+            outline-offset: 2px;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="intro">
+        <div class="card" tabindex="0">
+            <i class="fa-solid fa-book-open card-icon"></i>
+            <div class="card-content">
+                <h2>Notes</h2>
+                <p>Keep all your thoughts organized with our powerful note-taking system. Capture ideas instantly and access them anywhere.</p>
+                <a href="#" class="card-link">Learn More →</a>
+            </div>
+        </div>
+
+        <div class="card" tabindex="0">
+            <i class="fa-solid fa-code card-icon"></i>
+            <div class="card-content">
+                <h2>Code</h2>
+                <p>Write, edit, and manage your code seamlessly. Syntax highlighting and real-time collaboration built-in.</p>
+                <a href="#" class="card-link">Learn More →</a>
+            </div>
+        </div>
+
+        <div class="card" tabindex="0">
+            <i class="fa-solid fa-user card-icon"></i>
+            <div class="card-content">
+                <h2>Profile</h2>
+                <p>Showcase your skills and connect with others. Build your professional presence in our community.</p>
+                <a href="#" class="card-link">Learn More →</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
 
 <style>
     /* ================= HERO ================= */
