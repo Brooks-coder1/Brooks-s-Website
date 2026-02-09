@@ -26,13 +26,31 @@
 
 
 <div class="intro">
-    <div class="card"><i class="fa-solid fa-book-open"></i>Notes</div>
-    <div class="card"><i class="fa-solid fa-code"></i>Project</div>
-    <div class="card"><i class="fa-solid fa-user"></i>Personal Guidance</div>
+    <div class="card"><i class="fa-solid fa-book-open" style="font-size: 40px;"></i>
+        <div class="card-content"> 
+            <h1 style="font-size: 30px; text-align: center; margin-right: 20px;">Notes</h1>
+            <p style="font-size: large; text-align: left;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+        </div>
+    </div>
+    <div class="card"><i class="fa-solid fa-code" style="font-size: 40px;"></i>
+        <div class="card-content">
+            <h1 style="font-size: 30px; text-align: center; margin-right: 20px;">Notes</h1>
+            <p style="font-size: large; text-align: left;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            
+
+        </div>
+    </div>
+    <div class="card"><i class="fa-solid fa-user" style="font-size: 40px;"></i>
+        <div class="card-content">
+            <h1 style="font-size: 30px; text-align: center; margin-right: 20px;">Notes</h1>
+            <p style="font-size: large; text-align: left;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            
+        </div>
+    </div>
 </div>
 
 <style>
-
     .intro {
         display: flex;
         justify-content: center;
@@ -45,7 +63,7 @@
         border-radius: 15px;
         background: rgb(255, 255, 255);
         text-align: center;
-        color: #000000;
+        color: #000000; 
     }
 
     .card {
@@ -56,6 +74,9 @@
         cursor: pointer;
         font-weight: bold;
         font-size: 18px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
     }
 
     .card:hover {
@@ -100,6 +121,7 @@
     .hero-img {
         background-image: url(/static/logo.png);
         background-repeat: no-repeat;
+        background-position: -45px;
         width: 400px;
         height: 450px;
         border: #ffffff 2px solid;
